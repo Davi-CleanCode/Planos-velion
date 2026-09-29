@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velion Solutions — Apresentação Comercial</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --black: #050505;
+      --black2: #0b0b0b;
+      --white: #f7f7f7;
+      --gray: #a7a7a7;
+      --line: rgba(255, 255, 255, .11);
+      --red: #e10600;
+      --red2: #ff2a23;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .5;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 90px 0
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      padding: 18px 0;
+      background: rgba(5, 5, 5, .78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: -.05em;
+      font-size: 20px
+    }
+
+    .logo span {
+      color: var(--red)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: #aaa;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .nav-links a:hover {
+      color: white
+    }
+
+    .kicker {
+      color: var(--red2);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: 12px;
+      margin-bottom: 22px
+    }
+
+    .hero {
+      text-align: left
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 70px;
+      align-items: center
+    }
+
+    h1 {
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: .91;
+      letter-spacing: -.07em;
+      max-width: 850px
+    }
+
+    .red {
+      color: var(--red2)
+    }
+
+    .hero p {
+      color: var(--gray);
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 650px;
+      margin-top: 28px
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-weight: 800
+    }
+
+    .signature small {
+      display: block;
+      color: #777;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: 7px
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #111, #080808);
+      padding: 34px;
+      border-radius: 24px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .45)
+    }
+
+    .hero-card .number {
+      font-size: 78px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--red)
+    }
+
+    .hero-card h3 {
+      font-size: 20px;
+      margin: 14px 0
+    }
+
+    .hero-card p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #888
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5vw, 62px);
+      letter-spacing: -.055em;
+      line-height: 1;
+      margin-bottom: 18px
+    }
+
+    .section-sub {
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 680px
+    }
+
+    .problem-grid,
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 45px
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .025);
+      border-radius: 20px;
+      padding: 30px;
+      transition: .3s
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      border-color: rgba(225, 6, 0, .55)
+    }
+
+    .icon {
+      color: var(--red);
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 24px
+    }
+
+    .box h3 {
+      font-size: 18px;
+      margin-bottom: 12px
+    }
+
+    .box p {
+      color: #929292;
+      font-size: 14px;
+      line-height: 1.65
+    }
+
+    .flow {
+      margin-top: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .step {
+      flex: 1;
+      min-width: 130px;
+      text-align: center
+    }
+
+    .step .circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      font-weight: 900
+    }
+
+    .step strong {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .arrow {
+      color: var(--red);
+      font-size: 22px
+    }
+
+    .offer {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 38px;
+      background: linear-gradient(120deg, #0c0c0c, #101010)
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .offer h3 {
+      font-size: 38px;
+      letter-spacing: -.05em
+    }
+
+    .offer p {
+      color: #999;
+      line-height: 1.7;
+      margin-top: 16px
+    }
+
+    .offer ul {
+      list-style: none;
+      display: grid;
+      gap: 14px
+    }
+
+    .offer li {
+      font-size: 14px;
+      color: #ddd
+    }
+
+    .offer li:before {
+      content: "✓";
+      color: var(--red);
+      font-weight: 900;
+      margin-right: 11px
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 42px
+    }
+
+    .plan {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 29px;
+      background: #0b0b0b;
+      position: relative;
+      transition: .3s
+    }
+
+    .plan:hover {
+      transform: translateY(-6px)
+    }
+
+    .plan.featured {
+      border: 1px solid var(--red);
+      box-shadow: 0 0 50px rgba(225, 6, 0, .12)
+    }
+
+    .badge {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      background: var(--red);
+      padding: 7px 10px;
+      border-radius: 99px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .1em
+    }
+
+    .plan-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #777;
+      font-weight: 800
+    }
+
+    .plan h3 {
+      font-size: 27px;
+      margin-top: 10px
+    }
+
+    .price {
+      font-size: 39px;
+      font-weight: 900;
+      letter-spacing: -.06em;
+      margin: 22px 0 5px
+    }
+
+    .price span {
+      font-size: 13px;
+      color: #777;
+      letter-spacing: 0;
+      font-weight: 500
+    }
+
+    .plan-desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+      min-height: 65px
+    }
+
+    .plan hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 22px 0
+    }
+
+    .plan ul {
+      list-style: none;
+      display: grid;
+      gap: 12px
+    }
+
+    .plan li {
+      font-size: 13px;
+      color: #ddd;
+      line-height: 1.45
+    }
+
+    .plan li:before {
+      content: "✓";
+      color: var(--red);
+      font-weight: 900;
+      margin-right: 9px
+    }
+
+    .plan-note {
+      font-size: 11px;
+      color: #777;
+      line-height: 1.55;
+      margin-top: 17px
+    }
+
+    .final {
+      text-align: center
+    }
+
+    .final h2 {
+      font-size: clamp(50px, 8vw, 92px);
+      line-height: .92;
+      letter-spacing: -.07em
+    }
+
+    .final p {
+      color: #999;
+      max-width: 620px;
+      margin: 25px auto;
+      line-height: 1.7
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 22px;
+      background: var(--red);
+      color: white;
+      padding: 17px 28px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: .25s
+    }
+
+    .cta:hover {
+      background: var(--red2);
+      transform: translateY(-3px)
+    }
+
+    .footer {
+      text-align: center;
+      color: #555;
+      font-size: 11px;
+      padding: 30px 0 50px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: .75s ease
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:900px) {
+
+      .hero-grid,
+      .offer-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-card {
+        max-width: 500px
+      }
+
+      .problem-grid,
+      .solution-grid {
+        grid-template-columns: 1fr
+      }
+
+      .plans {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      section {
+        padding: 85px 0;
+        min-height: auto
+      }
+
+      .hero {
+        min-height: 100vh
+      }
+    }
+
+    @media(max-width:600px) {
+      h1 {
+        font-size: 53px
+      }
+
+      .hero p {
+        font-size: 16px
+      }
+
+      .flow {
+        justify-content: center
+      }
+
+      .plans {
+        grid-template-columns: 1fr
+      }
+
+      .arrow {
+        display: none
+      }
+
+      .step {
+        flex: 0 0 45%
+      }
+    }
+
+    .plan-cta {
+      display: block;
+      width: 100%;
+      margin-top: 24px;
+      background: var(--red);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      transition: .25s;
+    }
+
+    .plan-cta:hover {
+      background: var(--red2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="logo">VELION<span>.</span></div>
+      <div class="nav-links">
+        <a href="#solucao">Solução</a>
+        <a href="#operacao">Operação</a>
+        <a href="#planos">Planos</a>
+        <a href="#proposta">Proposta</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid reveal">
+      <div>
+        <div class="kicker">Velion Solutions</div>
+        <h1>Não é apenas <span class="red">tráfego.</span><br>É estrutura.</h1>
+        <p>Uma operação pensada para atrair oportunidades, transformar atenção em conversão e organizar o processo de
+          crescimento da sua empresa.</p>
+        <div class="signature"><small>Estrategista</small>Davi Viana</div>
+      </div>
+      <div class="hero-card">
+        <div class="number">01</div>
+        <h3>Aquisição com método.</h3>
+        <p>Estratégia, execução e acompanhamento conectados em uma única operação, com clareza sobre cada etapa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="solucao">
+    <div class="container reveal">
+      <div class="kicker">O problema</div>
+      <h2 class="section-title">Tráfego sozinho<br>não resolve.</h2>
+      <p class="section-sub">Gerar cliques é apenas uma parte da operação. O resultado depende do que acontece antes,
+        durante e depois do anúncio.</p>
+      <div class="problem-grid">
+        <div class="box">
+          <div class="icon">01</div>
+          <h3>Leads sem processo</h3>
+          <p>O investimento gera oportunidades, mas o atendimento não acompanha o potencial da campanha.</p>
+        </div>
+        <div class="box">
+          <div class="icon">02</div>
+          <h3>Falta de estrutura</h3>
+          <p>Landing page, atendimento, funil e aquisição trabalham separados e dificultam a evolução.</p>
+        </div>
+        <div class="box">
+          <div class="icon">03</div>
+          <h3>Pouca clareza</h3>
+          <p>Sem acompanhamento organizado, fica difícil entender o que está sendo feito e onde melhorar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operacao">
+    <div class="container reveal">
+      <div class="kicker">A solução Velion</div>
+      <h2 class="section-title">Uma operação.<br><span class="red">Várias frentes.</span></h2>
+      <p class="section-sub">Conectamos aquisição, conversão, atendimento e gestão para transformar marketing em uma
+        operação organizada.</p>
+      <div class="flow">
+        <div class="step">
+          <div class="circle">01</div><strong>Atrair</strong>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="circle">02</div><strong>Converter</strong>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="circle">03</div><strong>Atender</strong>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="circle">04</div><strong>Organizar</strong>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="circle">05</div><strong>Analisar</strong>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step">
+          <div class="circle">06</div><strong>Crescer</strong>
+        </div>
+      </div>
+      <div class="solution-grid">
+        <div class="box">
+          <div class="icon">01</div>
+          <h3>Aquisição</h3>
+          <p>Gestão de tráfego, campanhas e otimização focadas em geração de oportunidades.</p>
+        </div>
+        <div class="box">
+          <div class="icon">02</div>
+          <h3>Conversão</h3>
+          <p>Landing pages, copy, criativos e estrutura de funil para transformar atenção em ação.</p>
+        </div>
+        <div class="box">
+          <div class="icon">03</div>
+          <h3>Gestão</h3>
+          <p>Processos, acompanhamento e organização para que você tenha clareza sobre a operação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container reveal">
+      <div class="offer">
+        <div class="offer-grid">
+          <div>
+            <div class="kicker">O que você recebe</div>
+            <h3>Mais do que campanhas.<br><span class="red">Uma estrutura.</span></h3>
+            <p>O objetivo é construir uma operação que possa ser acompanhada, otimizada e evoluída ao longo do tempo.
+            </p>
+          </div>
+          <ul>
+            <li>Gestão e otimização de campanhas</li>
+            <li>Estrutura de conversão</li>
+            <li>Criação e direção de criativos</li>
+            <li>Social Media e planejamento de conteúdo</li>
+            <li>Landing Page</li>
+            <li>Estrutura de funil</li>
+            <li>Relatórios semanais</li>
+            <li>Organização de processos</li>
+            <li>Acompanhamento estratégico</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planos">
+    <div class="container reveal">
+      <div class="kicker">Planos</div>
+      <h2 class="section-title">Escolha o nível<br>da sua <span class="red">operação.</span></h2>
+      <p class="section-sub">Quatro soluções para diferentes momentos da operação — da estrutura inicial à escala.</p>
+
+      <div class="plans four-plans">
+        <article class="plan">
+          <div class="plan-label">Initial</div>
+          <div class="badge">PRODUTO PRINCIPAL</div>
+          <h3>Comece</h3>
+          <div class="price">R$ 1.500<span>/mês</span></div>
+          <p class="plan-desc">Para empresas que precisam colocar a aquisição digital em ordem e começar com uma
+            estrutura enxuta.</p>
+          <hr>
+          <ul>
+            <li>Gestão de tráfego pago</li>
+            <li>CRM</li>
+            <li>API Oficial</li>
+            <li>Landing Page</li>
+            <li>Relatórios e acompanhamento</li>
+            <li>Configuração e otimização de campanhas</li>
+            <li>Copy e direcionamento de criativos</li>
+            <li>Criativos estáticos</li>
+            <li>Direcionamento de conteúdo</li>
+          </ul>
+          <a class="plan-cta"
+            href="https://wa.me/?text=Ol%C3%A1%20Davi%20tenho%20interesse%20no%20Initial%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%3F"
+            target="_blank">Quero conhecer</a>
+        </article>
+
+        <article class="plan featured">
+          <div class="plan-label">Sprint de Aquisição</div>
+          <h3>Estruture em 14 dias</h3>
+          <div class="price">R$ 2.000<span> único</span></div>
+          <p class="plan-desc">Uma implementação intensiva para colocar oferta, funil, landing, aquisição e processo
+            comercial para rodar.</p>
+          <hr>
+          <ul>
+            <li>Diagnóstico e definição da oferta</li>
+            <li>Estrutura do funil de aquisição</li>
+            <li>Landing Page e conversão</li>
+            <li>Tracking e mensuração</li>
+            <li>Criativos e campanhas</li>
+            <li>WhatsApp e processo comercial</li>
+            <li>CRM e automações quando necessário</li>
+            <li>API Oficial</li>
+            <li>QA, Go Live e primeira análise</li>
+            <li>Plano de continuidade</li>
+          </ul>
+          <a class="plan-cta"
+            href="https://wa.me/?text=Ol%C3%A1%20Davi%20tenho%20interesse%20no%20Sprint%20de%20Aquisi%C3%A7%C3%A3o%20de%2014%20dias%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%3F"
+            target="_blank">Quero conhecer</a>
+        </article>
+
+        <article class="plan">
+          <div class="plan-label">Lead System</div>
+          <h3>Gere oportunidades</h3>
+          <div class="price">R$ 2.300<span>/mês</span></div>
+          <p class="plan-desc">Para empresas que querem transformar aquisição e captação de leads em um sistema
+            contínuo.</p>
+          <hr>
+          <ul>
+            <li>Gestão de tráfego pago</li>
+            <li>Campanhas focadas em geração de leads</li>
+            <li>Estrutura de captação e conversão</li>
+            <li>Landing Page</li>
+            <li>Tracking e mensuração</li>
+            <li>CRM e organização dos leads</li>
+            <li>API Oficial e disparos em massa</li>
+            <li>Processo de follow-up</li>
+            <li>Otimização contínua</li>
+          </ul>
+          <a class="plan-cta"
+            href="https://wa.me/?text=Ol%C3%A1%20Davi%20tenho%20interesse%20no%20Lead%20System%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%3F"
+            target="_blank">Quero conhecer</a>
+        </article>
+
+        <article class="plan">
+          <div class="plan-label">Advanced</div>
+          <h3>Escala</h3>
+          <div class="price">R$ 5.500<span>/3 meses</span></div>
+          <p class="plan-desc">Uma operação estratégica para empresas que precisam de aquisição, conversão e processo
+            comercial trabalhando juntos.</p>
+          <hr>
+          <ul>
+            <li>Gestão estratégica de aquisição</li>
+            <li>Tráfego pago e otimização de campanhas</li>
+            <li>Landing Pages e estrutura de conversão</li>
+            <li>CRM e automações</li>
+            <li>API Oficial e disparos em massa</li>
+            <li>Funil e processo comercial</li>
+            <li>Direção de criativos e copy</li>
+            <li>Planejamento de conteúdo</li>
+            <li>Acompanhamento estratégico</li>
+            <li>Otimização e plano de crescimento</li>
+          </ul>
+          <a class="plan-cta"
+            href="https://wa.me/?text=Ol%C3%A1%20Davi%20tenho%20interesse%20no%20Advanced%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%3F"
+            target="_blank">Quero conhecer</a>
+          <p class="plan-note">* Contratação em ciclo de 3 meses para implementação, maturação e otimização da
+            estratégia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proposta" class="final">
+    <div class="container reveal">
+      <div class="kicker">Próximo passo</div>
+      <h2>Sua operação.<br><span class="red">Nossa estratégia.</span></h2>
+      <p>Escolha o nível de estrutura que faz sentido para o momento da sua empresa e vamos construir a próxima fase do
+        seu crescimento.</p>
+      <div class="signature"><small>Velion Solutions</small>Davi Viana</div>
+      <a class="cta"
+        href="https://wa.me/?text=Olá%2C%20Davi!%20Quero%20entender%20qual%20plano%20da%20Velion%20faz%20mais%20sentido%20para%20minha%20empresa."
+        target="_blank">Quero começar</a>
+    </div>
+  </section>
+
+  <footer class="footer">VELION SOLUTIONS · DAVI VIANA</footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
